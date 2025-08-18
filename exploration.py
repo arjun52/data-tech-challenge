@@ -36,3 +36,11 @@ print(top_routes)
 top_routes = df.groupby('Route')['Passengers_Total'].sum().sort_values(ascending=True).head(5)
 print(f"\nBottom 5 routes with total passengers:")
 print(top_routes)
+
+# '#' of routes per year
+routes_per_year = df.groupby('Year')['Route'].nunique()
+print("\nNumber of unique routes per year:")
+for year, count in routes_per_year.items():
+    print(f"{year}: {count} routes")
+
+
